@@ -22,6 +22,12 @@ res.status(200).send('Hola Mundo');
 
 io.on('connection', function(socket){
     console.log('Alguien se ha conectado con socket')
+    /*Aqui controlamos los eventos del cliente mediante sockets*/
+    socket.emit('messages', {
+        id:1,
+        texto: "Hola soy un mensaje",
+        autor: "David Alexis Bustillos Aguirre"
+    })
 });
 
 server.listen(3002, function(){
